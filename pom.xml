@@ -148,6 +148,8 @@
                                 <argument>build</argument>
                                 <argument>--configuration</argument>
                                 <argument>Release</argument>
+                                <argument>--runtime</argument>
+                                <argument>win-x64</argument>
                             </arguments>
                         </configuration>
                     </execution>
