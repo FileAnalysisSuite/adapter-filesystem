@@ -9,7 +9,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{7A38EE9B
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MicroFocus.FAS.Adapters.FileSystem", "src\MicroFocus.FAS.Adapters.FileSystem\MicroFocus.FAS.Adapters.FileSystem.csproj", "{4D8C4113-5AD1-46BD-BF10-155E8EDB759D}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MicroFocus.FAS.Adapters.Rest.Tests", "tests\MicroFocus.FAS.Adapters.Rest.Tests\MicroFocus.FAS.Adapters.Rest.Tests.csproj", "{032259E1-5AA3-4BD2-B0A5-BBF0BD7936C5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MicroFocus.FAS.Adapters.FileSystem.Tests", "tests\MicroFocus.FAS.Adapters.FileSystem.Tests\MicroFocus.FAS.Adapters.FileSystem.Tests.csproj", "{032259E1-5AA3-4BD2-B0A5-BBF0BD7936C5}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "sepg", "sepg", "{93A4A7CA-916D-4469-B07C-B9AAB88BD4A1}"
 	ProjectSection(SolutionItems) = preProject
@@ -21,6 +21,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution", "Solution", "{19
 	ProjectSection(SolutionItems) = preProject
 		README.md = README.md
 		release-notes-1.0.0.md = release-notes-1.0.0.md
+		.editorconfig = .editorconfig
 	EndProjectSection
 EndProject
 Global

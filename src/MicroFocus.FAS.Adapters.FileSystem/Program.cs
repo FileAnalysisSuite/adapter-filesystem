@@ -25,8 +25,6 @@ var host = Host.CreateDefaultBuilder(args)
                .ConfigureServices((context, services) =>
                                   {
                                       services.ConfigureAdapterSdk<FileSystemAdapter>(context.Configuration, "FileSystemAdapter").AddHostedService<Worker>();
-                                      services.Configure<FileSystemAdapterConfiguration>(context.Configuration
-                                                                                                .GetSection(nameof(FileSystemAdapterConfiguration)));
                                   })
                .UseWindowsService()
                .Build();

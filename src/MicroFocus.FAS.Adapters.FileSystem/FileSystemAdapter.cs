@@ -15,24 +15,21 @@
  */
 
 using MicroFocus.FAS.AdapterSdk.Api;
-using Microsoft.Extensions.Options;
 
 namespace MicroFocus.FAS.Adapters.FileSystem
 {
     internal class FileSystemAdapter : IRepositoryAdapter
     {
-        private readonly IOptions<FileSystemAdapterConfiguration> _configuration;
         private readonly ILogger<FileSystemAdapter> _logger;
 
-        public FileSystemAdapter(ILogger<FileSystemAdapter> logger, IOptions<FileSystemAdapterConfiguration> configuration)
+        public FileSystemAdapter(ILogger<FileSystemAdapter> logger)
         {
             _logger = logger;
-            _configuration = configuration;
         }
 
         public IAdapterDescriptor CreateDescriptor()
         {
-            return new AdapterDescriptor(_configuration.Value.AdapterType,
+            return new AdapterDescriptor("FileSystemAdapter",
                                          new List<RepositorySettingDefinition>
                                          {
                                              new("Location", TypeCode.String, true, false),
@@ -85,11 +82,6 @@ namespace MicroFocus.FAS.Adapters.FileSystem
                                                               }),
                                              repositoryItem.Metadata);
             }
-        }
-
-        public ChangeType CompareItems(IRepositoryItem? existingItem, IRepositoryItem currentItem)
-        {
-            throw new NotImplementedException();
         }
 
         private async Task ProcessDirectoryAsync(DirectoryInfo directory, IFileListResultsHandler handler, CancellationToken cancellationToken)

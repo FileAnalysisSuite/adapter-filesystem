@@ -1,8 +1,11 @@
 #### Version Number
+
 ${version-number}
 
 #### New Features
- - Initial Release
+
+- Initial Release
 
 #### Known Issues
- - None
+
+- None

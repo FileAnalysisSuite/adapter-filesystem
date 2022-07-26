@@ -14,10 +14,13 @@
  * limitations under the License.
  */
 
-namespace MicroFocus.FAS.Adapters.FileSystem
+namespace MicroFocus.FAS.Adapters.FileSystem.Tests
 {
-    public class FileSystemAdapterConfiguration
+    public class UnitTest1
     {
-        public string AdapterType { get; set; } = "FileSystemAdapter";
+        [Fact]
+        public void Test1()
+        {
+        }
     }
 }
