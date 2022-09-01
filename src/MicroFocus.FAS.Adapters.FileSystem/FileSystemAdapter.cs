@@ -84,7 +84,8 @@ namespace MicroFocus.FAS.Adapters.FileSystem
                                                                   var file = new FileInfo(repositoryItem.Metadata.ItemLocation);
                                                                   return file.OpenRead();
                                                              },
-                                             repositoryItem.Metadata);
+                                             repositoryItem.Metadata,
+                                             cancellationToken);
             }
         }
 
