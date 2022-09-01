@@ -14,6 +14,7 @@
  * limitations under the License.
  */
 
+using Microfocus.Common;
 using MicroFocus.FAS.AdapterSdk.Api;
 
 namespace MicroFocus.FAS.Adapters.FileSystem
@@ -42,6 +43,10 @@ namespace MicroFocus.FAS.Adapters.FileSystem
         {
             // Get the repository option provided in UI, the location to scan
             var location = request.RepositoryProperties.RepositoryOptions.GetOption("Location");
+            if (location.IsNullOrEmpty())
+            {
+                throw new InvalidOperationException("Location repository property was not supplied");
+            }
             var userName = request.RepositoryProperties.RepositoryOptions.GetOption("UserName");
             var password = request.RepositoryProperties.RepositoryOptions.GetOption("Password");
             _logger.LogInformation("Starting processing of RetrieveFileList request using {Location}, {UserName}", location, userName);
@@ -75,11 +80,10 @@ namespace MicroFocus.FAS.Adapters.FileSystem
                 }
 
                 await handler.QueueItemAsync(repositoryItem.ItemId,
-                                             new FileContents(() =>
-                                                              {
+                                             () => {
                                                                   var file = new FileInfo(repositoryItem.Metadata.ItemLocation);
                                                                   return file.OpenRead();
-                                                              }),
+                                                             },
                                              repositoryItem.Metadata);
             }
         }
@@ -123,8 +127,12 @@ namespace MicroFocus.FAS.Adapters.FileSystem
             }
         }
 
-        private void LogIn(string userName, string password)
+        private void LogIn(string? userName, string? password)
         {
+            if (userName.IsNullOrEmpty() || password.IsNullOrEmpty())
+            {
+                return;
+            }
             // perform login...
             _logger.LogInformation("Logging in the user: {UserName} / {Password}", userName, password);
         }
