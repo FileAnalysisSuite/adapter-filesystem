@@ -33,9 +33,9 @@ namespace MicroFocus.FAS.Adapters.FileSystem
             return new AdapterDescriptor("FileSystemAdapter",
                                          new List<RepositorySettingDefinition>
                                          {
-                                             new("Location", TypeCode.String, true, false),
-                                             new("UserName", TypeCode.String, true, false),
-                                             new("Password", TypeCode.String, true, true)
+                                             new("Location", true),
+                                             new("UserName",  true),
+                                             new("Password", true)
                                          });
         }
 
