@@ -68,7 +68,7 @@ namespace MicroFocus.FAS.Adapters.FileSystem
             await ProcessDirectoryAsync(directoryInfo, handler, cancellationToken);
         }
 
-        public async Task RetrieveFilesDataAsync(RetrieveFilesDataRequest request, IFileDataResultsHandler handler, CancellationToken cancellationToken)
+        public async Task RetrieveFilesDataAsync(RepositoryFilesRequest request, IFileDataResultsHandler handler, CancellationToken cancellationToken)
         {
             _logger.LogInformation("Starting processing of RetrieveFilesData request, number of items: {NumItems}", request.Items.Count());
 
